@@ -4,8 +4,9 @@ author:
   twitter: markesler
   url: https://eslerm.github.io
 output: index.html
-style: style.css
-layout: layout.mustache
+#style: style.css
+#layout: layout.mustache
+theme: sjaakvandenberg/cleaver-dark
 
 --
 
@@ -86,6 +87,8 @@ Anisble has great documentation.
 
 [An example playbook and role](#) are shared with this slideshow.
 
+--
+
 ### Inventory example
 
 Contents of `inventory`:
@@ -98,12 +101,16 @@ Contents of `inventory`:
 ansible_ssh_private_key_file=/path/to/my/private.key
 ```
 
+--
+
 ### Role example
 
 Below if the file list of the role:
 ```
 ###
 ```
+
+--
 
 ### Playbook example:
 
