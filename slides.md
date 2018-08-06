@@ -27,7 +27,6 @@ It can be used to deploy new servers and manage existing servers. *e.g.*:
 
 ### Ansible YAML Example
 ```
-echo '''---
 # yum module example
 
 - hosts: vim-host             # hostgroup to run playbook on
@@ -40,8 +39,6 @@ echo '''---
       state: latest             # use latest version
     when: editor == "emacs"   # run when variable 'editor' is set to 'vim'
     become: yes               # run as a priviledge-escelated user
-
-''' > vim.yml
 ```
 
 --

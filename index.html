@@ -665,8 +665,7 @@ pre .xml .cdata {
   </div>
   <div class="slide hidden" id="slide-3">
     <section class="slide-content"><h3 id="ansible-yaml-example">Ansible YAML Example</h3>
-<pre><code>echo &#39;&#39;&#39;---
-# yum module example
+<pre><code># yum module example
 
 - hosts: vim-host             # hostgroup to run playbook on
   vars:
@@ -678,8 +677,6 @@ pre .xml .cdata {
       state: latest             # use latest version
     when: editor == &quot;emacs&quot;   # run when variable &#39;editor&#39; is set to &#39;vim&#39;
     become: yes               # run as a priviledge-escelated user
-
-&#39;&#39;&#39; &gt; vim.yml
 </code></pre></section>
   </div>
   <div class="slide hidden" id="slide-4">
