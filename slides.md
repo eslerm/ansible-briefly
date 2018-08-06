@@ -30,7 +30,6 @@ It can deploy new servers and manage existing servers. *e.g.*:
 Install vim with [Ansible's yum module](https://docs.ansible.com/ansible/latest/modules/yum_module.html)
 
 ```
----
 # yum module example
 
 - name: "Install vim"
@@ -56,9 +55,15 @@ ansible-playbook -i inventory demo.yml
 
 Ansible is often organized into **inventories**, **roles**, and **playbooks**.
 - **Inventories** define groups of servers and group specific variables.
+
 - **Roles** are a collection of tasks, templates, and variables used to perform a certain job.
   - Roles are meant to be reusbale for many applications.
   - *e.g.* install and configure PostgreSQL
+
+--
+
+### Common Anisble Organization **cont.**
+
 - **Playbooks** define a specific application of roles for groups of hosts.
   - Playbook variables override role variables which can change which tasks of the role execute.
   - *e.g.* two playbooks which use a Galaxy role, but one deploys a web server and the other deploys a job handler server.

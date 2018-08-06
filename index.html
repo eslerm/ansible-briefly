@@ -666,38 +666,40 @@ pre .xml .cdata {
   <div class="slide hidden" id="slide-3">
     <section class="slide-content"><h3 id="yaml-example">YAML Example</h3>
 <p>Install vim with <a href="https://docs.ansible.com/ansible/latest/modules/yum_module.html">Ansible&#39;s yum module</a></p>
-<p><code>`</code></p>
-</section>
+<pre><code># yum module example
+
+- name: &quot;Install vim&quot;
+  hosts: vim-host
+  yum:
+    name: vim
+    state: latest
+  when: editor != &quot;emacs&quot;
+  become: yes
+</code></pre></section>
   </div>
-  <div class="slide hidden -" id="slide-4">
-    <section class="slide-content"><h1 id="yum-module-example">yum module example</h1>
-<ul>
-<li>name: &quot;Install vim&quot;
-hosts: vim-host
-yum:
-  name: vim
-  state: latest
-when: editor != &quot;emacs&quot;
-become: yes
-<code>`</code></li>
-</ul>
-</section>
-  </div>
-  <div class="slide hidden" id="slide-5">
+  <div class="slide hidden" id="slide-4">
     <section class="slide-content"><h3 id="demo-of-yaml-example">Demo of YAML Example</h3>
 <pre><code>ansible-playbook -i inventory demo.yml
 </code></pre></section>
   </div>
-  <div class="slide hidden" id="slide-6">
+  <div class="slide hidden" id="slide-5">
     <section class="slide-content"><h3 id="common-anisble-organization">Common Anisble Organization</h3>
 <p>Ansible is often organized into <strong>inventories</strong>, <strong>roles</strong>, and <strong>playbooks</strong>.</p>
 <ul>
-<li><strong>Inventories</strong> define groups of servers and group specific variables.</li>
-<li><strong>Roles</strong> are a collection of tasks, templates, and variables used to perform a certain job.<ul>
+<li><p><strong>Inventories</strong> define groups of servers and group specific variables.</p>
+</li>
+<li><p><strong>Roles</strong> are a collection of tasks, templates, and variables used to perform a certain job.</p>
+<ul>
 <li>Roles are meant to be reusbale for many applications.</li>
 <li><em>e.g.</em> install and configure PostgreSQL</li>
 </ul>
 </li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-6">
+    <section class="slide-content"><h3 id="common-anisble-organization-cont-">Common Anisble Organization <strong>cont.</strong></h3>
+<ul>
 <li><strong>Playbooks</strong> define a specific application of roles for groups of hosts.<ul>
 <li>Playbook variables override role variables which can change which tasks of the role execute.</li>
 <li><em>e.g.</em> two playbooks which use a Galaxy role, but one deploys a web server and the other deploys a job handler server.</li>
