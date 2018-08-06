@@ -74,9 +74,9 @@ Ansible is often organized into **inventories**, **roles**, and **playbooks**.
 
 - Automation.
 - Administration becomes programmatic.
-  - Management becomes reproducible.
+  - Management is reproducible.
   - Removes most human error.
-  - Code is easy to share and audit.
+  - Code is readily shareable and auditiable.
 - Only requires SSH and Python on remote machine.
 
 --
