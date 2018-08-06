@@ -4,8 +4,6 @@ author:
   twitter: markesler
   url: https://eslerm.github.io
 output: index.html
-#style: style.css
-#layout: layout.mustache
 theme: sjaakvandenberg/cleaver-dark
 
 --
@@ -23,24 +21,30 @@ Ansible is a tool for automating system adminsitration tasks.
 
 It can be used to deploy new servers and manage existing servers. *e.g.*:
 - Install Galaxy with a PostgreSQL database and NGINX web server to a fresh operating system.
-- Backup a production server, upgrade server & database, test, and bring back online.
+- Backing up a production server, upgrade it's software  & database, test, and relaunch.
 
 --
 
 ### YAML Example
 
-Install vim with [Ansible's yum module](https://docs.ansible.com/ansible/latest/modules/yum_module.html):
+Installing vim with [Ansible's yum module](https://docs.ansible.com/ansible/latest/modules/yum_module.html):
 
 ```
+echo '''---
 # yum module example
 
-- name: "Install vim"
-  hosts: vim-host
-  yum:
-    name: vim
-    state: latest
-  when: editor != "emacs"
-  become: yes
+- hosts: vim-host             # hostgroup to run playbook on
+  vars:
+    editor: vim               # set editor variable
+  tasks:
+  - name: "Install vim"       # standard output
+    yum:                      # Ansible module
+      name: vim                 # package to install
+      state: latest             # use latest version
+    when: editor == "emacs"   # run when variable 'editor' is set to 'vim'
+    become: yes               # run as a priviledge-escelated user
+
+''' > vim.yml
 ```
 
 --
@@ -48,7 +52,7 @@ Install vim with [Ansible's yum module](https://docs.ansible.com/ansible/latest/
 ### Demo of YAML Example
 
 ```
-ansible-playbook -i inventory yum-demo.yml
+ansible-playbook -i inventory vim.yml
 ```
 
 --

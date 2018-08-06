@@ -659,27 +659,33 @@ pre .xml .cdata {
 <p>It can be used to deploy new servers and manage existing servers. <em>e.g.</em>:</p>
 <ul>
 <li>Install Galaxy with a PostgreSQL database and NGINX web server to a fresh operating system.</li>
-<li>Backup a production server, upgrade server &amp; database, test, and bring back online.</li>
+<li>Backing up a production server, upgrade it&#39;s software  &amp; database, test, and relaunch.</li>
 </ul>
 </section>
   </div>
   <div class="slide hidden" id="slide-3">
     <section class="slide-content"><h3 id="yaml-example">YAML Example</h3>
-<p>Install vim with <a href="https://docs.ansible.com/ansible/latest/modules/yum_module.html">Ansible&#39;s yum module</a>:</p>
-<pre><code># yum module example
+<p>Installing vim with <a href="https://docs.ansible.com/ansible/latest/modules/yum_module.html">Ansible&#39;s yum module</a>:</p>
+<pre><code>echo &#39;&#39;&#39;---
+# yum module example
 
-- name: &quot;Install vim&quot;
-  hosts: vim-host
-  yum:
-    name: vim
-    state: latest
-  when: editor != &quot;emacs&quot;
-  become: yes
+- hosts: vim-host             # hostgroup to run playbook on
+  vars:
+    editor: vim               # set editor variable
+  tasks:
+  - name: &quot;Install vim&quot;       # standard output
+    yum:                      # Ansible module
+      name: vim                 # package to install
+      state: latest             # use latest version
+    when: editor == &quot;emacs&quot;   # run when variable &#39;editor&#39; is set to &#39;vim&#39;
+    become: yes               # run as a priviledge-escelated user
+
+&#39;&#39;&#39; &gt; vim.yml
 </code></pre></section>
   </div>
   <div class="slide hidden" id="slide-4">
     <section class="slide-content"><h3 id="demo-of-yaml-example">Demo of YAML Example</h3>
-<pre><code>ansible-playbook -i inventory yum-demo.yml
+<pre><code>ansible-playbook -i inventory vim.yml
 </code></pre></section>
   </div>
   <div class="slide hidden" id="slide-5">
