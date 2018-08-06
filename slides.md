@@ -13,7 +13,7 @@ theme: sjaakvandenberg/cleaver-dark
 # Ansible
 ## Briefly Stated
 
-<center><img src="https://raw.githubusercontent.com/eslerm/slides-ansible-briefly_stated/master/qr.gif" /></center>
+<center><img src="https://raw.githubusercontent.com/eslerm/slides-ansible-briefly_stated/master/qr.gif" style="width: 200px;"/></center>
 
 --
 
