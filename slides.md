@@ -29,7 +29,7 @@ It can deploy new servers and manage existing servers. *e.g.*:
 
 Install vim with [Ansible's yum module](https://docs.ansible.com/ansible/latest/modules/yum_module.html)
 
-```yaml
+```
 ---
 # yum module example
 
@@ -55,13 +55,10 @@ ansible-playbook -i inventory demo.yml
 ### Common Anisble Organization
 
 Ansible is often organized into **inventories**, **roles**, and **playbooks**.
-
 - **Inventories** define groups of servers and group specific variables.
-
 - **Roles** are a collection of tasks, templates, and variables used to perform a certain job.
   - Roles are meant to be reusbale for many applications.
   - *e.g.* install and configure PostgreSQL
-
 - **Playbooks** define a specific application of roles for groups of hosts.
   - Playbook variables override role variables which can change which tasks of the role execute.
   - *e.g.* two playbooks which use a Galaxy role, but one deploys a web server and the other deploys a job handler server.
@@ -70,22 +67,22 @@ Ansible is often organized into **inventories**, **roles**, and **playbooks**.
 
 ### Reasons to use Ansible
 
-Automation.
-
-Administration becomes programmatic.
+- Automation.
+- Administration becomes programmatic.
   - Management becomes reproducible.
   - Removes most human error.
   - Code is easy to share and audit.
-
-Only requires SSH and Python on remote machine.
+- Only requires SSH and Python on remote machine.
 
 --
 
 ### More info
 
-Anisble has great documentation.
+Anisble has [great documentation](#).
 
 [An example playbook and role](#) are shared with this slideshow.
+
+The [Galaxy Project](#) has built roles for Galaxy.
 
 --
 
@@ -105,7 +102,7 @@ ansible_ssh_private_key_file=/path/to/my/private.key
 
 ### Role example
 
-Below if the file list of the role:
+Below is the file list of the `demo` role:
 ```
 ###
 ```
@@ -119,7 +116,7 @@ Contents of `demo.yml`
 ###
 ```
 
-Run the playbook with:
+Run this playbook with:
 ```
 ansible-playbook -i inventory demo.yml
 ```

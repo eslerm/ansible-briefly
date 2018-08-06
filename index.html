@@ -666,7 +666,7 @@ pre .xml .cdata {
   <div class="slide hidden" id="slide-3">
     <section class="slide-content"><h3 id="yaml-example">YAML Example</h3>
 <p>Install vim with <a href="https://docs.ansible.com/ansible/latest/modules/yum_module.html">Ansible&#39;s yum module</a></p>
-<p><code>`</code>yaml</p>
+<p><code>`</code></p>
 </section>
   </div>
   <div class="slide hidden -" id="slide-4">
@@ -692,16 +692,13 @@ become: yes
     <section class="slide-content"><h3 id="common-anisble-organization">Common Anisble Organization</h3>
 <p>Ansible is often organized into <strong>inventories</strong>, <strong>roles</strong>, and <strong>playbooks</strong>.</p>
 <ul>
-<li><p><strong>Inventories</strong> define groups of servers and group specific variables.</p>
-</li>
-<li><p><strong>Roles</strong> are a collection of tasks, templates, and variables used to perform a certain job.</p>
-<ul>
+<li><strong>Inventories</strong> define groups of servers and group specific variables.</li>
+<li><strong>Roles</strong> are a collection of tasks, templates, and variables used to perform a certain job.<ul>
 <li>Roles are meant to be reusbale for many applications.</li>
 <li><em>e.g.</em> install and configure PostgreSQL</li>
 </ul>
 </li>
-<li><p><strong>Playbooks</strong> define a specific application of roles for groups of hosts.</p>
-<ul>
+<li><strong>Playbooks</strong> define a specific application of roles for groups of hosts.<ul>
 <li>Playbook variables override role variables which can change which tasks of the role execute.</li>
 <li><em>e.g.</em> two playbooks which use a Galaxy role, but one deploys a web server and the other deploys a job handler server.</li>
 </ul>
@@ -711,20 +708,23 @@ become: yes
   </div>
   <div class="slide hidden" id="slide-7">
     <section class="slide-content"><h3 id="reasons-to-use-ansible">Reasons to use Ansible</h3>
-<p>Automation.</p>
-<p>Administration becomes programmatic.</p>
 <ul>
+<li>Automation.</li>
+<li>Administration becomes programmatic.<ul>
 <li>Management becomes reproducible.</li>
 <li>Removes most human error.</li>
 <li>Code is easy to share and audit.</li>
 </ul>
-<p>Only requires SSH and Python on remote machine.</p>
+</li>
+<li>Only requires SSH and Python on remote machine.</li>
+</ul>
 </section>
   </div>
   <div class="slide hidden" id="slide-8">
     <section class="slide-content"><h3 id="more-info">More info</h3>
-<p>Anisble has great documentation.</p>
+<p>Anisble has <a href="#">great documentation</a>.</p>
 <p><a href="#">An example playbook and role</a> are shared with this slideshow.</p>
+<p>The <a href="#">Galaxy Project</a> has built roles for Galaxy.</p>
 </section>
   </div>
   <div class="slide hidden" id="slide-9">
@@ -739,7 +739,7 @@ ansible_ssh_private_key_file=/path/to/my/private.key
   </div>
   <div class="slide hidden" id="slide-10">
     <section class="slide-content"><h3 id="role-example">Role example</h3>
-<p>Below if the file list of the role:</p>
+<p>Below is the file list of the <code>demo</code> role:</p>
 <pre><code>###
 </code></pre></section>
   </div>
@@ -747,7 +747,7 @@ ansible_ssh_private_key_file=/path/to/my/private.key
     <section class="slide-content"><h3 id="playbook-example-">Playbook example:</h3>
 <p>Contents of <code>demo.yml</code></p>
 <pre><code>###
-</code></pre><p>Run the playbook with:</p>
+</code></pre><p>Run this playbook with:</p>
 <pre><code>ansible-playbook -i inventory demo.yml
 </code></pre><p>An alternative playbook (<code>demo-alt.yml</code>) installs <code>emacs</code> instead of <code>vim</code>.</p>
 </section>
