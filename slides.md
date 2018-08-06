@@ -13,21 +13,23 @@ theme: sjaakvandenberg/cleaver-dark
 # Ansible
 ## Briefly Stated
 
+<center><img src="https://raw.githubusercontent.com/eslerm/slides-ansible-briefly_stated/master/qr.gif" /></center>
+
 --
 
 ### What is Ansible
 
 Ansible is a tool for automating system adminsitration tasks.
 
-It can deploy new servers and manage existing servers. *e.g.*:
+It can be used to deploy new servers and manage existing servers. *e.g.*:
 - Install Galaxy with a PostgreSQL database and NGINX web server to a fresh operating system.
-- Backup production server, upgrade server files, upgrade database, test, and bring back online.
+- Backup a production server, upgrade server & database, test, and bring back online.
 
 --
 
 ### YAML Example
 
-Install vim with [Ansible's yum module](https://docs.ansible.com/ansible/latest/modules/yum_module.html)
+Install vim with [Ansible's yum module](https://docs.ansible.com/ansible/latest/modules/yum_module.html):
 
 ```
 # yum module example
@@ -46,7 +48,7 @@ Install vim with [Ansible's yum module](https://docs.ansible.com/ansible/latest/
 ### Demo of YAML Example
 
 ```
-ansible-playbook -i inventory demo.yml
+ansible-playbook -i inventory yum-demo.yml
 ```
 
 --
@@ -56,17 +58,15 @@ ansible-playbook -i inventory demo.yml
 Ansible is often organized into **inventories**, **roles**, and **playbooks**.
 - **Inventories** define groups of servers and group specific variables.
 
-- **Roles** are a collection of tasks, templates, and variables used to perform a certain job.
-  - Roles are meant to be reusbale for many applications.
-  - *e.g.* install and configure PostgreSQL
+- **Roles** are a reusable collection of tasks, templates, and variables used to perform a certain job.
 
 --
 
 ### Common Anisble Organization **cont.**
 
-- **Playbooks** define a specific application of roles for groups of hosts.
+- **Playbooks** define a specific application of roles for a group of hosts.
   - Playbook variables override role variables which can change which tasks of the role execute.
-  - *e.g.* two playbooks which use a Galaxy role, but one deploys a web server and the other deploys a job handler server.
+  - *e.g.* two playbooks could use a Galaxy role, but one deploys a web server and the other deploys a job handler server.
 
 --
 
@@ -121,7 +121,7 @@ Contents of `demo.yml`
 ###
 ```
 
-Run this playbook with:
+Run this playbook with
 ```
 ansible-playbook -i inventory demo.yml
 ```

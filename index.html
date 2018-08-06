@@ -651,21 +651,21 @@ pre .xml .cdata {
   <div class="slide" id="slide-1">
     <section class="slide-content"><h1 id="ansible">Ansible</h1>
 <h2 id="briefly-stated">Briefly Stated</h2>
-</section>
+<center><img src="https://raw.githubusercontent.com/eslerm/slides-ansible-briefly_stated/master/qr.gif" /></center></section>
   </div>
   <div class="slide hidden" id="slide-2">
     <section class="slide-content"><h3 id="what-is-ansible">What is Ansible</h3>
 <p>Ansible is a tool for automating system adminsitration tasks.</p>
-<p>It can deploy new servers and manage existing servers. <em>e.g.</em>:</p>
+<p>It can be used to deploy new servers and manage existing servers. <em>e.g.</em>:</p>
 <ul>
 <li>Install Galaxy with a PostgreSQL database and NGINX web server to a fresh operating system.</li>
-<li>Backup production server, upgrade server files, upgrade database, test, and bring back online.</li>
+<li>Backup a production server, upgrade server &amp; database, test, and bring back online.</li>
 </ul>
 </section>
   </div>
   <div class="slide hidden" id="slide-3">
     <section class="slide-content"><h3 id="yaml-example">YAML Example</h3>
-<p>Install vim with <a href="https://docs.ansible.com/ansible/latest/modules/yum_module.html">Ansible&#39;s yum module</a></p>
+<p>Install vim with <a href="https://docs.ansible.com/ansible/latest/modules/yum_module.html">Ansible&#39;s yum module</a>:</p>
 <pre><code># yum module example
 
 - name: &quot;Install vim&quot;
@@ -679,7 +679,7 @@ pre .xml .cdata {
   </div>
   <div class="slide hidden" id="slide-4">
     <section class="slide-content"><h3 id="demo-of-yaml-example">Demo of YAML Example</h3>
-<pre><code>ansible-playbook -i inventory demo.yml
+<pre><code>ansible-playbook -i inventory yum-demo.yml
 </code></pre></section>
   </div>
   <div class="slide hidden" id="slide-5">
@@ -688,11 +688,7 @@ pre .xml .cdata {
 <ul>
 <li><p><strong>Inventories</strong> define groups of servers and group specific variables.</p>
 </li>
-<li><p><strong>Roles</strong> are a collection of tasks, templates, and variables used to perform a certain job.</p>
-<ul>
-<li>Roles are meant to be reusbale for many applications.</li>
-<li><em>e.g.</em> install and configure PostgreSQL</li>
-</ul>
+<li><p><strong>Roles</strong> are a reusable collection of tasks, templates, and variables used to perform a certain job.</p>
 </li>
 </ul>
 </section>
@@ -700,9 +696,9 @@ pre .xml .cdata {
   <div class="slide hidden" id="slide-6">
     <section class="slide-content"><h3 id="common-anisble-organization-cont-">Common Anisble Organization <strong>cont.</strong></h3>
 <ul>
-<li><strong>Playbooks</strong> define a specific application of roles for groups of hosts.<ul>
+<li><strong>Playbooks</strong> define a specific application of roles for a group of hosts.<ul>
 <li>Playbook variables override role variables which can change which tasks of the role execute.</li>
-<li><em>e.g.</em> two playbooks which use a Galaxy role, but one deploys a web server and the other deploys a job handler server.</li>
+<li><em>e.g.</em> two playbooks could use a Galaxy role, but one deploys a web server and the other deploys a job handler server.</li>
 </ul>
 </li>
 </ul>
@@ -749,7 +745,7 @@ ansible_ssh_private_key_file=/path/to/my/private.key
     <section class="slide-content"><h3 id="playbook-example-">Playbook example:</h3>
 <p>Contents of <code>demo.yml</code></p>
 <pre><code>###
-</code></pre><p>Run this playbook with:</p>
+</code></pre><p>Run this playbook with</p>
 <pre><code>ansible-playbook -i inventory demo.yml
 </code></pre><p>An alternative playbook (<code>demo-alt.yml</code>) installs <code>emacs</code> instead of <code>vim</code>.</p>
 </section>
