@@ -25,10 +25,7 @@ It can be used to deploy new servers and manage existing servers. *e.g.*:
 
 --
 
-### YAML Example
-
-Installing vim with [Ansible's yum module](https://docs.ansible.com/ansible/latest/modules/yum_module.html):
-
+### Ansible YAML Example
 ```
 echo '''---
 # yum module example
@@ -49,7 +46,7 @@ echo '''---
 
 --
 
-### Demo of YAML Example
+### Demo of Ansible YAML Example
 
 ```
 ansible-playbook -i inventory vim.yml
