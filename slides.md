@@ -29,13 +29,13 @@ It can be used to deploy new servers and manage existing servers. *e.g.*:
 
 - hosts: vim-host             # hostgroup to run playbook on
   vars:
-    editor: vim               # set editor variable
+    editor: vim               # custom variables
   tasks:
-  - name: "Install vim"       # standard output
+  - name: "Install vim"       # task description for standard output
     yum:                      # Ansible module
       name: vim                 # package to install
       state: latest             # use latest version
-    when: editor == "emacs"   # run when variable 'editor' is set to 'vim'
+    when: editor == "vim"   # run when variable 'editor' is set to 'vim'
     become: yes               # run as a priviledge-escelated user
 ```
 
@@ -51,7 +51,8 @@ ansible-playbook -i inventory vim.yml
 
 ### Common Anisble Organization
 
-Ansible is often organized into **inventories**, **roles**, and **playbooks**.
+Ansible is often organized with **inventories**, **roles**, and **playbooks**.
+
 - **Inventories** define groups of servers and group specific variables.
 
 - **Roles** are a reusable collection of tasks, templates, and variables used to perform a certain job.
@@ -68,11 +69,12 @@ Ansible is often organized into **inventories**, **roles**, and **playbooks**.
 
 ### Reasons to use Ansible
 
-- Automation.
+- For server build automation.
+
 - Administration becomes programmatic.
-  - Management is reproducible.
-  - Removes most human error.
-  - Code is readily shareable and auditiable.
+  - Build is reproducible.
+  - Build process is readily shareable and auditiable.
+
 - Only requires SSH and Python on remote machine.
 
 --
@@ -81,7 +83,7 @@ Ansible is often organized into **inventories**, **roles**, and **playbooks**.
 
 Anisble has [great documentation](#).
 
-[An example playbook and role](#) are shared with this slideshow.
+[ansible-briefly](#) is a desriptively commened Ansible example/
 
 The [Galaxy Project](#) has built roles for Galaxy.
 
@@ -117,7 +119,6 @@ Contents of `demo.yml`
 ###
 ```
 
-Run this playbook with
 ```
 ansible-playbook -i inventory demo.yml
 ```
