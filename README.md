@@ -1,8 +1,8 @@
 # ansible-briefly
 
-ansible-briefly is a rudimentary demonstration of an Ansible playbook and role.
+This repository contains a rudimentary Ansible playbook and role to teach the basics of Anisble.
 
-It is critical to read all ansible-briefly files to understand how they work together.
+All files of ansible-briefly are meant to be read so, that the reader can see how they fit together.
 
 A high level overview of Ansible is provided in these [slides](https://eslerm.github.io/ansible-briefly/).
 
