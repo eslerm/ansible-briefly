@@ -1,4 +1,4 @@
-title: Briefly Ansible
+title: ansible-briefly slides
 author:
   name: Mark Esler
   url: https://eslerm.github.io
@@ -7,9 +7,9 @@ theme: sjaakvandenberg/cleaver-dark
 
 --
 
-# Briefly Ansible
+# ansible-briefly
 
-<img src="https://raw.githubusercontent.com/eslerm/slides-ansible-briefly_stated/master/qr.gif" style="width: 200px;"/>
+<img src="https://raw.githubusercontent.com/eslerm/slides-ansible-briefly_stated/master/qr.gif" style="width: auto; position: absolute; bottom: 1em; right: 1em;"/>
 
 --
 
