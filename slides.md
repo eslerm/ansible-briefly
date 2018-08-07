@@ -19,12 +19,12 @@ Ansible is a tool for automating system adminsitration tasks.
 
 It can be used to deploy new servers and manage existing servers. *e.g.*:
 - Install Galaxy with a PostgreSQL database and NGINX web server to a fresh operating system.
-- Backing up a production server, upgrade it's software  & database, test, and relaunch.
+- Backing up a production server, upgrade its software  & database, test, and relaunch.
 
 --
 
 ### Ansible YAML Example
-```
+```yaml
 # yum module example
 
 - hosts: vim-host             # hostgroup to run playbook on
@@ -43,7 +43,7 @@ It can be used to deploy new servers and manage existing servers. *e.g.*:
 
 ### Demo of Ansible YAML Example
 
-```
+```bash
 ansible-playbook -i inventory vim.yml
 ```
 
@@ -93,7 +93,7 @@ The [Galaxy Project](#) has built roles for Galaxy.
 
 Contents of `inventory`:
 
-```
+```ini
 [vim-hosts]
 1.2.3.4
 
@@ -106,7 +106,7 @@ ansible_ssh_private_key_file=/path/to/my/private.key
 ### Role example
 
 Below is the file list of the `demo` role:
-```
+```yaml
 ###
 ```
 
@@ -115,11 +115,11 @@ Below is the file list of the `demo` role:
 ### Playbook example:
 
 Contents of `demo.yml`
-```
+```yaml
 ###
 ```
 
-```
+```bash
 ansible-playbook -i inventory demo.yml
 ```
 
