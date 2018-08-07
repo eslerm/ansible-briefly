@@ -1,8 +1,16 @@
 ---
 # Install emacs task
 
-- name: "Install emacs"
+- name: "Install emacs with yum"
   yum:
     name: emacs
     state: latest
   become: yes
+  when: ansible_os_family == "RedHat"
+
+- name: "Install emacs apt"
+  apt:
+    name: emacs
+    state: latest
+  become: yes
+  when: ansible_os_family == "Debian"

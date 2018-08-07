@@ -1,8 +1,16 @@
 ---
 # Install vim task
 
-- name: "Install vim"       # standard output
-  yum:                      # Ansible module
-    name: vim                 # package to install
-    state: latest             # use latest version
-  become: yes               # run as a priviledge-escelated user
+- name: "Install vim with yum"         # task name for standard output
+  yum:                                 # Ansible module to use
+    name: vim                            # package to install
+    state: latest                        # install latest version
+  become: yes                          # escelate users privilege for task
+  when: ansible_os_family == "RedHat"  # only run on RedHat family distros
+
+- name: "Install vim with apt"
+  apt:
+    name: vim
+    state: latest
+  become: yes
+  when: ansible_os_family == "Debian"

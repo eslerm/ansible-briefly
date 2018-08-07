@@ -1,5 +1,5 @@
-- hosts: vim-host  # hostgroup to run playbook on
+- hosts: demo-hosts  # inventory hostgroup to run playbook on
   vars:
-    - editor: vim
+    - editor: emacs  # playbook variables override role defaults
   roles: 
-    - demo
+    - demo           # more roles can be used

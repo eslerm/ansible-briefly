@@ -2,13 +2,15 @@
 
 ansible-briefly is a rudimentary demonstration of an Ansible playbook and role.
 
-It is important to inspect all the files in this repo and read their comments to understand how they fit together.
+It is critical to read all ansible-briefly files to understand how they work together.
 
-[slides](https://eslerm.github.io/ansible-briefly/)
+A high level overview of Ansible is provided in these [slides](https://eslerm.github.io/ansible-briefly/).
 
 ## Key concepts
 
 ### Inventory
+
+Read Ansible's guide on [Working with Inventory](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html)
 
 The `inventory` file contains groups of hosts and group variables. To use this playbook add your servers information to the inventory.
 
@@ -16,51 +18,56 @@ Authentication information can be set in the inventory or set when running `ansi
 
 ### Playbook
 
+Read Ansible's [Intro to Playbooks](https://docs.ansible.com/ansible/latest/user_guide/playbooks.html) documentation after completing the exercies below.
+
 The file `briefly.yml` is an Ansible playbook.
 
-The playbook can be ran with the inventory file by:
+The playbook can be run with the inventory file with:
 ```
 ansible-playbook -i inventory briefly.yml
 ```
 
-Inspect `briefly.yml` to see how variabls and roles are set.
-
+Run the above command a second time and look for differences in the standard output.
 
 ### Role
 
-The `roles/` directory contains roles that the playbook can use. ansible-briefly uses a single role named `demo`.
+The `roles/` directory contains roles which the playbook can use. ansible-briefly uses a single role named `demo`.
 
-Default role varialbes are set in `defaults/main.yml`. 
+`demo`'s defaults are are set in `roles/demo/defaults/main.yml`. 
 
-When the role is initiated the task `tasks/main.yml` runs. In this case  `main.yml` starts other tasks depending on the `editor` variable.
+When the role is initiated the task `roles/demo/tasks/main.yml` runs. In this case `main.yml` prints a debug message and then starts other tasks depending on the `editor` variable.
 
-## Common `ansible-playbook` Parameters
+## `ansible-playbook` 
 
-### Variables
+Read Ansible's [ansible-playbook documentation](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html).
 
-Variables set in the command line superceed all other variables.
+### `--extra-vars`
 
-This command will set the `editor` variable to `emacs` regardless of variables in the playbook or role:
+Variables set in the command line supersede all other variables.
+
+This command will set the `editor` variable to `gvim` regardless of variables in the playbook or role:
 ```
-ansible-playbook -i inventory --extra-vars="editor=emacs" briefly.yml
+ansible-playbook -i inventory --extra-vars="editor=gvim" briefly.yml
 ```
 
-`ansible_ssh_user`, `ansible_ssh_private_key_file` and `ansible_ssh_pass` are variables which may be useful for server authentication. These variables can also be set in the `inventory` file.
+### `--ask-become-pass`
 
-### Privilege-escelatation password
-
-A password is likely required to use sudo or other software-escalation software. `ansible-playbook` has a parameter to ask for this password:
+Set this if privilege-escelation software, like `sudo`, requires a password:
 ```
 ansible-playbook -i inventory --ask-become-pass briefly.yml
 ```
 
-### Tags
+### `--tags` or `-t`
 
-When tags are set only tasks with the specified tags will run.
-
-Example of using a tag:
+When tags are set only tasks with the specified tags will run:
 ```
 ansible-playbook -i inventory -t vim briefly.yml
 ```
 
-Note that the `message` task did not execute with the above command.
+Note that the `Debug message` task does not execute when tags are used.
+
+In this example, only `gvim` tagged tasks will be initiated, but will be skipped since, the `editor` variable is not set to `gvim`:
+```
+ansible-playbook -i inventory -t gvim --extra-vars="editor=emacs" briefly.yml
+```
+
