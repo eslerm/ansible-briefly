@@ -71,3 +71,6 @@ In this example, only `gvim` tagged tasks will be initiated, but will be skipped
 ansible-playbook -i inventory -t gvim --extra-vars="editor=emacs" briefly.yml
 ```
 
+## Essential Reading
+
+[Ansible's User Guide](https://docs.ansible.com/ansible/latest/user_guide/index.html).
