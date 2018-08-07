@@ -1,5 +1,0 @@
-- hosts: vim-host  # hostgroup to run playbook on
-  vars:
-    - editor: vim
-  roles: 
-    - demo

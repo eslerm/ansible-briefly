@@ -1,5 +1,0 @@
----
-# defaults for ansible-briefly
-
-# set vim as the default editor
-editor: vim

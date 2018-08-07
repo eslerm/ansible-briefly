@@ -1,8 +1,0 @@
----
-# Install vim task
-
-- name: "Install vim"       # standard output
-  yum:                      # Ansible module
-    name: vim                 # package to install
-    state: latest             # use latest version
-  become: yes               # run as a priviledge-escelated user
