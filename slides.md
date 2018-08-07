@@ -1,17 +1,15 @@
-title: Creating Graphs
+title: Briefly Ansible
 author:
   name: Mark Esler
-  twitter: markesler
   url: https://eslerm.github.io
 output: index.html
 theme: sjaakvandenberg/cleaver-dark
 
 --
 
-# Ansible
-## Briefly Stated
+# Briefly Ansible
 
-<center><img src="https://raw.githubusercontent.com/eslerm/slides-ansible-briefly_stated/master/qr.gif" style="width: 200px;"/></center>
+<img src="https://raw.githubusercontent.com/eslerm/slides-ansible-briefly_stated/master/qr.gif" style="width: 200px;"/>
 
 --
 
