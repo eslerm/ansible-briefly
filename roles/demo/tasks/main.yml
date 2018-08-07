@@ -1,0 +1,18 @@
+---
+# main tasks file for ansible-briefly
+
+- include_tasks: emacs.yml
+  when: editor == emacs
+  tags: emacs
+
+- include_tasks: vim.yml
+  when: editor == vim or editor == gvim  # when takes boolean
+  tags:
+    - vim
+    - gvim  # multiple tags can be used
+
+- include_tasks: gvim.yml
+  when: editor == gvim
+  tags: gvim
+
+

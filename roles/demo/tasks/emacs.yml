@@ -1,0 +1,8 @@
+---
+# Install emacs task
+
+- name: "Install emacs"
+  yum:
+    name: emacs
+    state: latest
+  become: yes

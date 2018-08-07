@@ -1,0 +1,8 @@
+---
+# Install gvim task
+
+- name: "Install gvim"
+  yum:
+    name: gvim
+    state: latest
+  become: yes
