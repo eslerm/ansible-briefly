@@ -1,18 +1,166 @@
+<!doctype html>
 <html>
 	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/white.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!</section><section> Theme used for syntax highlighting of code </section><section>>
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!</section><section> Printing and PDF exports </section><section>>
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
 	</head>
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section>
+# ansible-briefly
+
+<img src="https://raw.githubusercontent.com/eslerm/slides-ansible-briefly_stated/master/qr.gif" style="width: auto; position: absolute; bottom: 1em; right: 1em;"/>
+
+</section><section>
+
+### What is Ansible
+
+Ansible is a tool for automating system adminsitration tasks.
+
+It can be used to deploy new servers and manage existing servers. *e.g.*:
+- Install Galaxy with a PostgreSQL database and NGINX web server to a fresh operating system.
+- Backing up a production server, upgrade it's software  & database, test, and relaunch.
+
+</section><section>
+
+### Ansible YAML Example
+```
+# yum module example
+
+- hosts: vim-host             # hostgroup to run playbook on
+  vars:
+    editor: vim               # custom variables
+  tasks:
+  - name: "Install vim"       # task description for standard output
+    yum:                      # Ansible module
+      name: vim                 # package to install
+      state: latest             # use latest version
+    when: editor == "vim"   # run when variable 'editor' is set to 'vim'
+    become: yes               # run as a priviledge-escelated user
+```
+
+</section><section>
+
+### Demo of Ansible YAML Example
+
+```
+ansible-playbook -i inventory vim.yml
+```
+
+</section><section>
+
+### Common Anisble Organization
+
+Ansible is often organized with **inventories**, **roles**, and **playbooks**.
+
+- **Inventories** define groups of servers and group specific variables.
+
+- **Roles** are a reusable collection of tasks, templates, and variables used to perform a certain job.
+
+</section><section>
+
+### Common Anisble Organization **cont.**
+
+- **Playbooks** define a specific application of roles for a group of hosts.
+  - Playbook variables override role variables which can change which tasks of the role execute.
+  - *e.g.* two playbooks could use a Galaxy role, but one deploys a web server and the other deploys a job handler server.
+
+</section><section>
+
+### Reasons to use Ansible
+
+- For server build automation.
+
+- Administration becomes programmatic.
+  - Build is reproducible.
+  - Build process is readily shareable and auditiable.
+
+- Only requires SSH and Python on remote machine.
+
+</section><section>
+
+### More info
+
+Anisble has [great documentation](#).
+
+[ansible-briefly](#) is a desriptively commened Ansible example/
+
+The [Galaxy Project](#) has built roles for Galaxy.
+
+</section><section>
+
+### Inventory example
+
+Contents of `inventory`:
+
+```
+[vim-hosts]
+1.2.3.4
+
+[vim-hosts:vars]
+ansible_ssh_private_key_file=/path/to/my/private.key
+```
+
+</section><section>
+
+### Role example
+
+Below is the file list of the `demo` role:
+```
+###
+```
+
+</section><section>
+
+### Playbook example:
+
+Contents of `demo.yml`
+```
+###
+```
+
+```
+ansible-playbook -i inventory demo.yml
+```
+
+An alternative playbook (`demo-alt.yml`) installs `emacs` instead of `vim`.
+</section>
 			</div>
 		</div>
+
+		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.js"></script>
+
 		<script>
-			Reveal.initialize();
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
 		</script>
 	</body>
 </html>
