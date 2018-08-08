@@ -24,14 +24,14 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-<section>
+				<section data-markdown><textarea data-template>Slide 1</textarea></section>
+				<section data-markdown><textarea data-template>Slide 2</textarea></section>
+<section data-markdown><textarea data-template>
 
 # ansible-briefly
 
-</section>
-<section>
+</textarea></section>
+<section data-markdown><textarea data-template>
 
 ### What is Ansible
 
@@ -41,8 +41,8 @@ It can be used to deploy new servers and manage existing servers. *e.g.*:
 - Install Galaxy with a PostgreSQL database and NGINX web server to a fresh operating system.
 - Backing up a production server, upgrade it's software  & database, test, and relaunch.
 
-</section>
-<section>
+</textarea></section>
+<section data-markdown><textarea data-template>
 
 ### Ansible YAML Example
 ```
@@ -60,8 +60,8 @@ It can be used to deploy new servers and manage existing servers. *e.g.*:
     become: yes               # run as a priviledge-escelated user
 ```
 
-</section>
-<section>
+</textarea></section>
+<section data-markdown><textarea data-template>
 
 ### Demo of Ansible YAML Example
 
@@ -69,8 +69,8 @@ It can be used to deploy new servers and manage existing servers. *e.g.*:
 ansible-playbook -i inventory vim.yml
 ```
 
-</section>
-<section>
+</textarea></section>
+<section data-markdown><textarea data-template>
 
 ### Common Anisble Organization
 
@@ -80,8 +80,8 @@ Ansible is often organized with **inventories**, **roles**, and **playbooks**.
 
 - **Roles** are a reusable collection of tasks, templates, and variables used to perform a certain job.
 
-</section>
-<section>
+</textarea></section>
+<section data-markdown><textarea data-template>
 
 ### Common Anisble Organization **cont.**
 
@@ -89,8 +89,8 @@ Ansible is often organized with **inventories**, **roles**, and **playbooks**.
   - Playbook variables override role variables which can change which tasks of the role execute.
   - *e.g.* two playbooks could use a Galaxy role, but one deploys a web server and the other deploys a job handler server.
 
-</section>
-<section>
+</textarea></section>
+<section data-markdown><textarea data-template>
 
 ### Reasons to use Ansible
 
@@ -102,8 +102,8 @@ Ansible is often organized with **inventories**, **roles**, and **playbooks**.
 
 - Only requires SSH and Python on remote machine.
 
-</section>
-<section>
+</textarea></section>
+<section data-markdown><textarea data-template>
 
 ### More info
 
@@ -113,8 +113,8 @@ Anisble has [great documentation](#).
 
 The [Galaxy Project](#) has built roles for Galaxy.
 
-</section>
-<section>
+</textarea></section>
+<section data-markdown><textarea data-template>
 
 ### Inventory example
 
@@ -128,8 +128,8 @@ Contents of `inventory`:
 ansible_ssh_private_key_file=/path/to/my/private.key
 ```
 
-</section>
-<section>
+</textarea></section>
+<section data-markdown><textarea data-template>
 
 ### Role example
 
@@ -138,8 +138,8 @@ Below is the file list of the `demo` role:
 ###
 ```
 
-</section>
-<section>
+</textarea></section>
+<section data-markdown><textarea data-template>
 
 ### Playbook example:
 
@@ -153,7 +153,7 @@ ansible-playbook -i inventory demo.yml
 ```
 
 An alternative playbook (`demo-alt.yml`) installs `emacs` instead of `vim`.
-</section>
+</textarea></section>
 			</div>
 		</div>
 
