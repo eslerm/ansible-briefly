@@ -1,10 +1,10 @@
-# ansible-briefly
+# Briefly Anisble
 
 This repository contains a rudimentary Ansible playbook and role to teach the basics of Anisble.
 
-All files of ansible-briefly are meant to be read so, that the reader can see how they fit together.
+All files of Briefly Ansible are meant to be read so, that the reader can see how they fit together.
 
-A high level overview of Ansible is provided in these [slides](https://eslerm.github.io/ansible-briefly/).
+A high level overview of Ansible is provided in these [slides](https://eslerm.github.io/briefly-ansible/).
 
 ## Key concepts
 
@@ -31,7 +31,7 @@ Run the above command a second time and look for differences in the standard out
 
 ### Role
 
-The `roles/` directory contains roles which the playbook can use. ansible-briefly uses a single role named `demo`.
+The `roles/` directory contains roles which the playbook can use. Briefly Ansible uses a single role named `demo`.
 
 `demo`'s defaults are are set in `roles/demo/defaults/main.yml`. 
 
