@@ -52,7 +52,7 @@ It can be used to deploy new servers and manage existing servers.
 - Automated server builds and management.
 
 - Administration becomes programmatic.
-  - Build is reproducible.
+  - Builds are reproducible.
   - Build process is readily shareable and auditiable.
   - Less human error
 
@@ -103,8 +103,8 @@ Ansible can be organized with **Inventories**, **Roles**, and **Playbooks**.
 ### Common Anisble Organization **cont.**
 
 - **Playbooks** define a specific application of roles for a group of hosts.
-  - Playbook variables override role variables which can change which tasks of the role execute.
-  - *e.g.* two playbooks could use a Galaxy role, but one deploys a web server and the other deploys a job handler server.
+  - Playbook variables override role variables which can change how a role executes.
+  - *e.g.* two playbooks could use the same role, but one deploys a web server and the other deploys a job handler.
 
 </textarea></section>
 <section data-markdown><textarea data-template>
@@ -113,7 +113,7 @@ Ansible can be organized with **Inventories**, **Roles**, and **Playbooks**.
 
 Anisble's [Documentation](https://docs.ansible.com).
 
-[Briefly Ansible](https://github.com/eslerm/briefly-ansible) is a desriptively demonstation of Ansible.
+[Briefly Ansible](https://github.com/eslerm/briefly-ansible) is a desriptive demonstation of Ansible.
 
 </textarea></section>
 <section data-markdown><textarea data-template>
@@ -138,7 +138,6 @@ briefly-ansible
             |-- gvim.yml
             |-- main.yml
             `-- vim.yml
-
 ```
 
 </textarea></section>
