@@ -1,8 +1,8 @@
 # Briefly Anisble
 
-Briefly Ansible was written to aid learning the fundamentals of Ansible through a desriptive and rudimentary demonstation of Ansible. Please read the [Ansible Documentaion](https://docs.ansible.com/) if you intend to use Ansible meaningfully.
+Briefly Ansible was written to aid learning the fundamentals of Ansible through a desriptive and rudimentary demonstation of Ansible. Please read [Ansible's Documentaion](https://docs.ansible.com/) if you intend to use Ansible meaningfully.
 
-All files of Briefly Ansible should to be read so, that the reader can see how they fit together.
+All files of Briefly Ansible should to be read so, that the reader can interpret how they fit together.
 
 A high level overview of Ansible is provided in these [slides](https://eslerm.github.io/briefly-ansible/).
 
