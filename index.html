@@ -7,11 +7,11 @@
 		<title>Briefly Ansible</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/white.css">
                 <style>
 			.reveal .slides { text-algin: left; }
 			.reveal pre { width: 100%; }
 		</style>
-		<link rel="stylesheet" href="css/theme/solarized.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -135,9 +135,14 @@ briefly-ansible
 
 ```
 
-### Briefly Ansible's Inventory (`inventory`)
+</textarea></section>
+<section data-markdown><textarea data-template>
+
+### Briefly Ansible's Inventory 
 
 ```
+# cat inventory
+
 [demo-hosts]
 127.0.0.1
 
@@ -150,9 +155,11 @@ ansible_ssh_private_key_file=/path/to/private.key
 </textarea></section>
 <section data-markdown><textarea data-template>
 
-### Briefly Anisble's Playbook (`briefly.yml`)
+### Briefly Anisble's Playbook
 
 ```
+# cat briefly.yml
+
 ---
 # Playbook of briefly-ansible
 
