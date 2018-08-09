@@ -1,8 +1,8 @@
 # Briefly Anisble
 
-This repository contains a rudimentary Ansible playbook and role to teach the basics of Anisble.
+Briefly Ansible was written to aid learning the fundamentals of Ansible through a desriptive and rudimentary demonstation of Ansible. Please read the [Ansible Documentaion](https://docs.ansible.com/) if you intend to use Ansible meaningfully.
 
-All files of Briefly Ansible are meant to be read so, that the reader can see how they fit together.
+All files of Briefly Ansible should to be read so, that the reader can see how they fit together.
 
 A high level overview of Ansible is provided in these [slides](https://eslerm.github.io/briefly-ansible/).
 
@@ -10,15 +10,13 @@ A high level overview of Ansible is provided in these [slides](https://eslerm.gi
 
 ### Inventory
 
-Read Ansible's guide on [Working with Inventory](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html)
-
 The `inventory` file contains groups of hosts and group variables. To use this playbook add your servers information to the inventory.
 
 Authentication information can be set in the inventory or set when running `ansible-playbook`.
 
-### Playbook
+See Ansible's User Guide to [Working with Inventory](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html).
 
-Read Ansible's [Intro to Playbooks](https://docs.ansible.com/ansible/latest/user_guide/playbooks.html) documentation after completing the exercies below.
+### Playbook
 
 The file `briefly.yml` is an Ansible playbook.
 
@@ -29,6 +27,8 @@ ansible-playbook -i inventory briefly.yml
 
 Run the above command a second time and look for differences in the standard output.
 
+See Ansible's User Guide to [Intro to Playbooks](https://docs.ansible.com/ansible/latest/user_guide/playbooks.html) for more.
+
 ### Role
 
 The `roles/` directory contains roles which the playbook can use. Briefly Ansible uses a single role named `demo`.
@@ -37,13 +37,15 @@ The `roles/` directory contains roles which the playbook can use. Briefly Ansibl
 
 When the role is initiated the task `roles/demo/tasks/main.yml` runs. In this case `main.yml` prints a debug message and then starts other tasks depending on the `editor` variable.
 
+See Ansible's User Guide to [Roles](https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html) for more.
+
 ## `ansible-playbook` 
 
-Read Ansible's [ansible-playbook documentation](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html).
+See Ansible's [ansible-playbook](https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html) dcoumentation for more.
 
 ### `--extra-vars`
 
-Variables set in the command line supersede all other variables.
+Variables set in the command line supersedes all other variables.
 
 This command will set the `editor` variable to `gvim` regardless of variables in the playbook or role:
 ```
