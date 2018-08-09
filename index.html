@@ -118,6 +118,9 @@ Anisble's [Documentation](https://docs.ansible.com).
 ### Tree of Briefly Ansible
 
 ```
+tree briefly-ansible
+```
+```
 briefly-ansible
 |-- LICENSE
 |-- README.md
@@ -141,7 +144,7 @@ briefly-ansible
 ### Briefly Ansible's Inventory 
 
 ```
-# cat inventory
+cat inventory
 ```
 ```
 [demo-hosts]
@@ -159,8 +162,9 @@ ansible_ssh_private_key_file=/path/to/private.key
 ### Briefly Anisble's Playbook
 
 ```
-# cat briefly.yml
-
+cat briefly.yml
+```
+```
 ---
 # Playbook of briefly-ansible
 
@@ -174,7 +178,10 @@ ansible_ssh_private_key_file=/path/to/private.key
 </textarea></section>
 <section data-markdown><textarea data-template>
 
-### `demo` roles defaults (`roles/demo/defaults/main.yml`)
+### `demo` roles defaults
+```
+cat roles/demo/defaults/main.yml
+```
 
 ```
 ---
@@ -187,8 +194,11 @@ editor: vim
 </textarea></section>
 <section data-markdown><textarea data-template>
 
-### `demo` roles main task file (`roles/demo/tasks/main.yml`)
+### `demo` roles main task file
 
+```
+cat roles/demo/tasks/main.yml
+```
 ```
 ---
 # main task file for briefy-ansible
@@ -221,8 +231,11 @@ editor: vim
 </textarea></section>
 <section data-markdown><textarea data-template>
 
-### A subtaks of `demo` role (`roles/demo/defaults/vim.yml`)
+### A subtask of `demo` role
 
+```
+cat roles/demo/defaults/vim.yml
+```
 ```
 ---
 # Install vim task
