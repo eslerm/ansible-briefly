@@ -63,9 +63,14 @@ It can be used to deploy new servers and manage existing servers.
 </textarea></section>
 <section data-markdown><textarea data-template>
 
-### Ansible YAML Example
+### Ansible Overview Example
+
 ```
-# yum module example
+cat overview.yml
+```
+```
+---
+# Ansible overview example playbook
 
 - hosts: vim-host           # hostgroup to run playbook on
   vars:
@@ -104,7 +109,7 @@ Ansible can be organized with **Inventories**, **Roles**, and **Playbooks**.
 
 ### Common Anisble Organization **cont.**
 
-- **Playbooks** define a specific application of roles and tasks for a group of hosts.
+- **Playbooks** define a specific application of roles and/or tasks for a group of hosts.
   - Playbook variables override role variables which can change how a role executes.
   - *e.g.* Two playbooks could use the same role, but one deploys a web server and the other deploys a job handler.
 
@@ -115,7 +120,7 @@ Ansible can be organized with **Inventories**, **Roles**, and **Playbooks**.
 
 Anisble's [Documentation](https://docs.ansible.com).
 
-[Briefly Ansible](https://github.com/eslerm/briefly-ansible) is a desriptive demonstation of Ansible.
+[Briefly Ansible](https://github.com/eslerm/briefly-ansible) is a desriptive and rudimentary demonstation of Ansible.
 
 </textarea></section>
 <section data-markdown><textarea data-template>
