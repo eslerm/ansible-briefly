@@ -1,3 +1,6 @@
+---
+# Playbook of briefly-ansible
+
 - hosts: demo-hosts  # inventory hostgroup to run playbook on
   vars:
     - editor: emacs  # playbook variables override role defaults
