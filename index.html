@@ -42,19 +42,18 @@
 
 ### What is Ansible
 
-Ansible is a tool for automating system adminsitration tasks.
-
-It can deploy new servers and manage existing servers.
+Ansible is an automation tool for provisioning and managing unix servers.
 
 </textarea></section>
 <section data-markdown><textarea data-template>
 
 ### Reasons to use Ansible
 
-- Automated server builds and management.
+- Automation.
 
-- Administration becomes programmatic.
+- System administration becomes programmatic.
   - Build process is readily shareable and auditiable.
+  - Build process can adapt to environment (*e.g.* OS).
   - Less human error.
 
 - Only requires SSH and Python on remote machine.
@@ -68,7 +67,7 @@ It can deploy new servers and manage existing servers.
 ---
 # Ansible overview example playbook
 
-- hosts: vim-host           # hostgroup to run playbook on
+- hosts: vim-hosts          # hostgroup to run playbook on
   vars:
     editor: vim             # custom variables
   tasks:
@@ -107,7 +106,7 @@ Ansible can be organized with **Inventories**, **Roles**, and **Playbooks**.
 
 - **Playbooks** define a specific application of roles and/or tasks for a group of hosts.
   - Playbook variables override role variables which can change how a role executes.
-  - *e.g.* Two playbooks could use the same role, but one deploys a web server and the other deploys a job handler.
+    - *e.g.* Two playbooks use the same role, but one deploys a web server and the other deploys a job handler.
 
 </textarea></section>
 <section data-markdown><textarea data-template>
