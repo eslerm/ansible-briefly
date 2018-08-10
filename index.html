@@ -54,9 +54,8 @@ It can deploy new servers and manage existing servers.
 - Automated server builds and management.
 
 - Administration becomes programmatic.
-  - Builds are reproducible.
   - Build process is readily shareable and auditiable.
-  - Less human error
+  - Less human error.
 
 - Only requires SSH and Python on remote machine.
 
@@ -77,7 +76,7 @@ It can deploy new servers and manage existing servers.
     yum:                    # Ansible module
       name: vim               # package to install
       state: latest           # use latest version
-    when: editor == "vim"   # define variable
+    when: editor == "vim"   # run when condition met
     become: yes             # run as a priviledge-escelated user
 ```
 
