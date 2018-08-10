@@ -15,7 +15,7 @@
 		</style>
 
 		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/railcasts.css">
+		<link rel="stylesheet" href="lib/css/github.css">
 
 		<!-- Printing and PDF exports -->
 		<script>
@@ -86,7 +86,7 @@ It can deploy new servers and manage existing servers.
 
 ### Demo of Briefly Ansible
 
-```
+```bash
 ansible-playbook -i inventory briefly.yml
 ```
 
@@ -124,10 +124,10 @@ Anisble's [Documentation](https://docs.ansible.com).
 
 ### Tree of Briefly Ansible
 
-```
+```bash
 tree briefly-ansible
 ```
-```
+```bash
 briefly-ansible
 |-- LICENSE
 |-- README.md
@@ -149,10 +149,10 @@ briefly-ansible
 
 ### Briefly Ansible's Inventory 
 
-```
+```bash
 cat inventory
 ```
-```
+```ini
 [demo-hosts]
 127.0.0.1
 
@@ -167,10 +167,10 @@ ansible_ssh_private_key_file=/path/to/private.key
 
 ### Briefly Anisble's Playbook
 
-```
+```bash
 cat briefly.yml
 ```
-```
+```yaml
 ---
 # Playbook of briefly-ansible
 
@@ -185,11 +185,11 @@ cat briefly.yml
 <section data-markdown><textarea data-template>
 
 ### demo roles defaults
-```
+
+```bash
 cat roles/demo/defaults/main.yml
 ```
-
-```
+```yaml
 ---
 # defaults for briefly-ansible
 
@@ -202,10 +202,10 @@ editor: vim
 
 ### demo roles main task file
 
-```
+```bash
 cat roles/demo/tasks/main.yml
 ```
-```
+```yaml
 ---
 # main task file for briefy-ansible
 
@@ -239,10 +239,10 @@ cat roles/demo/tasks/main.yml
 
 ### A subtask of demo role
 
-```
+```bash
 cat roles/demo/defaults/vim.yml
 ```
-```
+```yaml
 ---
 # Install vim task
 
