@@ -8,7 +8,7 @@
   become: yes
   when: ansible_os_family == "RedHat"
 
-- name: "Install emacs apt"
+- name: "Install emacs with apt"
   apt:
     name: emacs
     state: latest
