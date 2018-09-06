@@ -13,13 +13,17 @@ theme: sjaakvandenberg/cleaver-dark
 
 --
 
-### What is Ansible
+### Methods
+
+How do we make our lab infrastructure easier to maintain?
+
+Ho do we export our lab infrastructure to other labs?
+
+--
+
+### Ansible
 
 Ansible is a tool for automating system adminsitration tasks.
-
-It can be used to deploy new servers and manage existing servers. *e.g.*:
-- Install Galaxy with a PostgreSQL database and NGINX web server to a fresh operating system.
-- Backing up a production server, upgrade it's software  & database, test, and relaunch.
 
 --
 
@@ -49,33 +53,11 @@ ansible-playbook -i inventory vim.yml
 
 --
 
-### Common Anisble Organization
+### Advantages of Ansible
 
-Ansible is often organized with **inventories**, **roles**, and **playbooks**.
-
-- **Inventories** define groups of servers and group specific variables.
-
-- **Roles** are a reusable collection of tasks, templates, and variables used to perform a certain job.
-
---
-
-### Common Anisble Organization **cont.**
-
-- **Playbooks** define a specific application of roles for a group of hosts.
-  - Playbook variables override role variables which can change which tasks of the role execute.
-  - *e.g.* two playbooks could use a Galaxy role, but one deploys a web server and the other deploys a job handler server.
-
---
-
-### Reasons to use Ansible
-
-- For server build automation.
-
-- Administration becomes programmatic.
-  - Build is reproducible.
-  - Build process is readily shareable and auditiable.
-
-- Only requires SSH and Python on remote machine.
+- reproducible
+- shareable
+- auditable
 
 --
 
@@ -87,40 +69,3 @@ Anisble has [great documentation](#).
 
 The [Galaxy Project](#) has built roles for Galaxy.
 
---
-
-### Inventory example
-
-Contents of `inventory`:
-
-```
-[vim-hosts]
-1.2.3.4
-
-[vim-hosts:vars]
-ansible_ssh_private_key_file=/path/to/my/private.key
-```
-
---
-
-### Role example
-
-Below is the file list of the `demo` role:
-```
-###
-```
-
---
-
-### Playbook example:
-
-Contents of `demo.yml`
-```
-###
-```
-
-```
-ansible-playbook -i inventory demo.yml
-```
-
-An alternative playbook (`demo-alt.yml`) installs `emacs` instead of `vim`.
