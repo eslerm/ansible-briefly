@@ -1,293 +1,869 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <title>ansible-briefly slides</title>
+  <style type="text/css">
+    /* Color Palette Based on Monokai
 
-		<title>Briefly Ansible</title>
+white       : #fafafa
+light grey  : #efefef
+grey        : #75715e
+dark grey   : #272822
+black       : #191919
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/white.css">
-                <style>
-			.reveal .slides { text-algin: left; }
-			.reveal pre { width: 100%; }
-                        .reveal section img { border: none; box-shadow: none; }
-		</style>
+light blue  : #66d9ef
+blue        : #1db4d0
+lavender    : #bf79db
+magenta     : #f92672
+light green : #a6e22e
+*/
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/github.css">
+/* Local Fonts */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: url('fonts/opensans/300.woff2') format('woff2'),
+       url('fonts/opensans/300.woff') format('woff');
+}
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = Document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-<section data-markdown><textarea data-template>
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('fonts/opensans/400.woff2') format('woff2'),
+       url('fonts/opensans/400.woff') format('woff');
+}
 
-# Briefly Ansible
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: url('fonts/opensans/600.woff2') format('woff2'),
+       url('fonts/opensans/600.woff') format('woff');
+}
 
-[![qr code](https://github.com/eslerm/briefly-ansible/raw/gh-pages/qr.gif)](https://github.com/eslerm/briefly-ansible)
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: url('fonts/opensans/700.woff2') format('woff2'),
+       url('fonts/opensans/700.woff') format('woff');
+}
 
-[https://github.com/eslerm/briefly-ansible](https://github.com/eslerm/briefly-ansible)
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 800;
+  src: url('fonts/opensans/800.woff2') format('woff2'),
+       url('fonts/opensans/800.woff') format('woff');
+}
 
-</textarea></section>
-<section data-markdown><textarea data-template>
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 300;
+  src: url('fonts/opensans/300i.woff2') format('woff2'),
+       url('fonts/opensans/300i.woff') format('woff');
+}
 
-### What is Ansible
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 400;
+  src: url('fonts/opensans/400i.woff2') format('woff2'),
+       url('fonts/opensans/400i.woff') format('woff');
+}
 
-Ansible is an automation tool for provisioning and managing unix servers.
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 600;
+  src: url('fonts/opensans/600i.woff2') format('woff2'),
+       url('fonts/opensans/600i.woff') format('woff');
+}
 
-</textarea></section>
-<section data-markdown><textarea data-template>
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 700;
+  src: url('fonts/opensans/700i.woff2') format('woff2'),
+       url('fonts/opensans/700i.woff') format('woff');
+}
 
-### Reasons to use Ansible
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 800;
+  src: url('fonts/opensans/800i.woff2') format('woff2'),
+       url('fonts/opensans/800i.woff') format('woff');
+}
 
-- Automation.
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 400;
+  src: url('fonts/merriweather/400.woff2') format('woff2'),
+       url('fonts/merriweather/400.woff') format('woff');
+}
 
-- System administration becomes programmatic.
-  - Build process is readily shareable and auditiable.
-  - Build process can adapt to environment (*e.g.* OS).
-  - Less human error.
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 700;
+  src: url('fonts/merriweather/700.woff2') format('woff2'),
+       url('fonts/merriweather/700.woff') format('woff');
+}
 
-- Only requires SSH and Python on remote machine.
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 900;
+  src: url('fonts/merriweather/900.woff2') format('woff2'),
+       url('fonts/merriweather/900.woff') format('woff');
+}
 
-</textarea></section>
-<section data-markdown><textarea data-template>
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 400;
+  src: url('fonts/merriweather/400i.woff2') format('woff2'),
+       url('fonts/merriweather/400i.woff') format('woff');
+}
 
-### Ansible Overview Example
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 700;
+  src: url('fonts/merriweather/700i.woff2') format('woff2'),
+       url('fonts/merriweather/700i.woff') format('woff');
+}
 
-```yaml
----
-# Ansible overview example playbook
+@font-face {
+  font-family: 'Merriweather';
+  font-style: italic;
+  font-weight: 900;
+  src: url('fonts/merriweather/900i.woff2') format('woff2'),
+       url('fonts/merriweather/900i.woff') format('woff');
+}
 
-- hosts: vim-hosts          # hostgroup to run playbook on
+@font-face {
+  font-family: 'Fira Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: url('fonts/fira/400.woff2') format('woff2'),
+       url('fonts/fira/400.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Fira Mono';
+  font-style: normal;
+  font-weight: 500;
+  src: url('fonts/fira/500.woff2') format('woff2'),
+       url('fonts/fira/500.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Fira Mono';
+  font-style: normal;
+  font-weight: 700;
+  src: url('fonts/fira/700.woff2') format('woff2'),
+       url('fonts/fira/700.woff') format('woff');
+}
+
+/* Theme Styles */
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 100%;
+  color: #fafafa;
+  background-color: #191919;
+}
+
+/* Custom Slide Styles */
+#slide-1 {
+  background: #222 url(wireball.png) center center no-repeat;
+  background-size: cover;
+}
+
+#slide-1 h1 {
+  text-shadow: 1px 2px 4px #191919;
+}
+
+#slide-1 p {
+  text-shadow: 1px 1px 1px #191919;
+}
+
+.center {
+  text-align: center;
+}
+
+img.badge {
+  height: 128px;
+  width: 128px !important;
+  border-radius: 50% !important;
+}
+
+/* Presentation Styles */
+.slide {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 100px;
+}
+
+.slide-content {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0 auto;
+  font-size: 200%;
+  font-weight: 200;
+  line-height: 1.375;
+  overflow: hidden;
+}
+
+.slide-content img {
+  width: 100%;
+  border-radius: 3px;
+}
+
+.controls {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+.arrow {
+  float: left;
+  height: 0;
+  width: 0;
+  margin-right: 15px;
+  border: 15px solid #272822;
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+
+.prev {
+  border-top-color: transparent;
+  border-right-width: 25px;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+  border-left-width: 0;
+}
+
+.next {
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-right-width: 0;
+  border-bottom-color: transparent;
+  border-left-width: 25px;
+}
+
+.prev:hover {
+  border-right-color: #efefef;
+  cursor: pointer;
+}
+
+.next:hover {
+  border-left-color: #efefef;
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Merriweather', serif;
+}
+
+h1 {
+  margin: 170px 0 0;
+  font-size: 300%;
+  text-align: center;
+  line-height: 1.2;
+}
+
+h2 {
+  margin: 5px 0;
+  font-size: 100%;
+  font-weight: 200;
+  text-align: center;
+  line-height: 1.2;
+}
+
+h3 {
+  margin: 0;
+  padding-bottom: 15px;
+  font-size: 140%;
+  line-height: 1.2;
+  border-bottom: 2px ridge #fafafa;
+}
+
+ul {
+  padding: 20px 0 0 60px;
+  font-weight: 200;
+  line-height: 1.375;
+}
+
+blockquote {
+  padding-left: 20px;
+  margin-left: 0;
+  background: #272822;
+  border-left: 5px solid #efefef;
+  border-radius: 0 3px 3px 0;
+}
+
+blockquote p {
+  padding: .5em;
+  color: #efefef;
+}
+
+.left {
+  float: left;
+  width: 48%;
+}
+
+.right {
+  float: right;
+  width: 48%;
+}
+
+.author h1 {
+  margin-bottom: 30px;
+  font-size: 170%;
+  font-weight: 200;
+  text-align: center;
+}
+
+.author h3 {
+  font-size: 95%;
+  font-weight: 100;
+  text-align: center;
+  border: none;
+}
+
+.author h3.twitter::before {
+  content: 'Twitter: ';
+}
+
+.author h3.github::before {
+  content: 'Github: ';
+}
+
+.author h3.email::before {
+  content: 'Email: ';
+}
+
+.author h3.url::before {
+  content: 'Web: ';
+}
+
+a {
+  text-decoration: none;
+  color: #66d9ef;
+}
+
+a:hover {
+  color: #66d9ef;
+  border-bottom: 1px solid #66d9ef;
+}
+
+hr {
+  border: 1px solid #efefef;
+}
+
+pre {
+  font-size: 75%;
+  line-height: 1.3;
+}
+
+table td,
+table th {
+  padding-right: 3em;
+  text-align: left;
+}
+
+.progress {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 3px;
+}
+
+.progress-bar {
+  height: 3px;
+  width: 0;
+  background-color: #a6e22e;
+  -webkit-transition: width .15s ease-out;
+     -moz-transition: width .15s ease-out;
+       -o-transition: width .15s ease-out;
+          transition: width .15s ease-out;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Code Highlighting */
+code {
+  padding: .1em .35em;
+  font-family: 'Fira Mono';
+  color: #fafafa;
+  background-color: #272822;
+  border-radius: 3px;
+}
+
+pre code {
+  display: block;
+  padding: .5em;
+  font-family: 'Fira Mono';
+  font-weight: 400;
+  overflow-y: hidden;
+  background: #272822;
+}
+
+pre .tag,
+pre .tag .title,
+pre .keyword,
+pre .literal,
+pre .change,
+pre .winutils,
+pre .flow,
+pre .lisp .title,
+pre .clojure .built_in,
+pre .nginx .title,
+pre .tex .special {
+  color: #f92672;
+}
+
+pre code {
+  color: #75715e;
+}
+
+pre code .constant {
+  color: #66d9ef;
+}
+
+pre .class .title {
+  color: #fafafa;
+}
+
+pre .attribute,
+pre .symbol,
+pre .symbol .string,
+pre .value,
+pre .regexp {
+  color: #bf79db;
+}
+
+pre .tag .value,
+pre .string,
+pre .subst,
+pre .title,
+pre .haskell .type,
+pre .preprocessor,
+pre .ruby .class .parent,
+pre .built_in,
+pre .sql .aggregate,
+pre .django .template_tag,
+pre .django .variable,
+pre .smalltalk .class,
+pre .javadoc,
+pre .django .filter .argument,
+pre .smalltalk .localvars,
+pre .smalltalk .array,
+pre .attr_selector,
+pre .pseudo,
+pre .addition,
+pre .stream,
+pre .envvar,
+pre .apache .tag,
+pre .apache .cbracket,
+pre .tex .command,
+pre .prompt {
+  color: #a6e22e;
+}
+
+pre .comment,
+pre .java .annotation,
+pre .python .decorator,
+pre .template_comment,
+pre .pi,
+pre .doctype,
+pre .deletion,
+pre .shebang,
+pre .apache .sqbracket,
+pre .tex .formula {
+  color: #75715e;
+}
+
+pre .keyword,
+pre .literal,
+pre .css .id,
+pre .phpdoc,
+pre .title,
+pre .haskell .type,
+pre .vbscript .built_in,
+pre .sql .aggregate,
+pre .rsl .built_in,
+pre .smalltalk .class,
+pre .diff .header,
+pre .chunk,
+pre .winutils,
+pre .bash .variable,
+pre .apache .tag,
+pre .tex .special,
+pre .request,
+pre .status {
+  /* font-weight: 600; */
+}
+
+pre .coffeescript .javascript,
+pre .javascript .xml,
+pre .tex .formula,
+pre .xml .javascript,
+pre .xml .vbscript,
+pre .xml .css,
+pre .xml .cdata {
+  opacity: .5;
+}
+
+/* Responsiveness */
+
+@media (max-width: 850px) {
+
+  body {
+    font-size: 70%;
+  }
+
+  .slide-content {
+    width: auto;
+  }
+
+  img {
+    width: 100%;
+    border-radius: 3px;
+  }
+
+  h1 {
+    margin-top: 120px;
+  }
+
+  .prev,
+  .prev:hover {
+    border-right-color: rgba(135, 135, 135, .5);
+  }
+
+  .next,
+  .next:hover {
+    border-left-color: rgba(135, 135, 135, .5);
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    overflow: hidden;
+    font-size: 50%;
+  }
+
+  .slide-content {
+    height: 340px;
+    padding: 10px;
+    margin-top: 10px;
+  }
+
+  h1 {
+    margin-top: 50px;
+  }
+
+  ul {
+    padding-left: 25px;
+  }
+}
+
+@media print {
+  * {
+    -webkit-print-color-adjust: exact;
+  }
+
+  @page {
+    size: letter;
+  }
+
+  .hidden {
+    display: inline;
+  }
+
+  html {
+    height: 100%;
+    width: 100%;
+    overflow: visible;
+  }
+
+  body {
+    float: none !important;
+    padding: 0;
+    margin: 0 auto !important;
+    overflow: visible;
+    font-size: 52%;
+    background: none !important;
+    border: 0;
+  }
+
+  .progress,
+  .controls {
+    display: none;
+  }
+
+  .slide {
+    position: static;
+  }
+
+  .slide-content {
+    margin-top: 0;
+    margin-bottom: 40px;
+    height: 3.5in;
+    overflow: visible;
+    border: 1px solid #222;
+  }
+
+  .slide:nth-child(even) {
+    /* 2 slides per page */
+    page-break-before: always;
+  }
+}
+
+  </style>
+</head>
+<body>
+    <div class="progress">
+    <div class="progress-bar"></div>
+  </div>
+
+  <div class="slide" id="slide-1">
+    <section class="slide-content"><h1 id="ansible-briefly">ansible-briefly</h1>
+<p><img src="https://raw.githubusercontent.com/eslerm/slides-ansible-briefly_stated/master/qr.gif" style="width: auto; position: absolute; bottom: 1em; right: 1em;"/></p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-2">
+    <section class="slide-content"><h3 id="methods">Methods</h3>
+<p>How do we make our lab infrastructure easier to maintain?</p>
+<p>Ho do we export our lab infrastructure to other labs?</p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-3">
+    <section class="slide-content"><h3 id="ansible">Ansible</h3>
+<p>Ansible is a tool for automating system adminsitration tasks.</p>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-4">
+    <section class="slide-content"><h3 id="ansible-yaml-example">Ansible YAML Example</h3>
+<pre><code># yum module example
+
+- hosts: vim-host             # hostgroup to run playbook on
   vars:
-    editor: vim             # custom variables
+    editor: vim               # custom variables
   tasks:
-  - name: "Install vim"     # task description for standard output
-    yum:                    # Ansible module
-      name: vim               # package to install
-      state: latest           # use latest version
-    when: editor == "vim"   # run when condition met
-    become: yes             # run as a priviledge-escelated user
-```
+  - name: &quot;Install vim&quot;       # task description for standard output
+    yum:                      # Ansible module
+      name: vim                 # package to install
+      state: latest             # use latest version
+    when: editor == &quot;vim&quot;   # run when variable &#39;editor&#39; is set to &#39;vim&#39;
+    become: yes               # run as a priviledge-escelated user
+</code></pre></section>
+  </div>
+  <div class="slide hidden" id="slide-5">
+    <section class="slide-content"><h3 id="demo-of-ansible-yaml-example">Demo of Ansible YAML Example</h3>
+<pre><code>ansible-playbook -i inventory vim.yml
+</code></pre></section>
+  </div>
+  <div class="slide hidden" id="slide-6">
+    <section class="slide-content"><h3 id="advantages-of-ansible">Advantages of Ansible</h3>
+<ul>
+<li>reproducible</li>
+<li>shareable</li>
+<li>auditable</li>
+</ul>
+</section>
+  </div>
+  <div class="slide hidden" id="slide-7">
+    <section class="slide-content"><h3 id="more-info">More info</h3>
+<p>Anisble has <a href="#">great documentation</a>.</p>
+<p><a href="#">ansible-briefly</a> is a desriptively commened Ansible example/</p>
+<p>The <a href="#">Galaxy Project</a> has built roles for Galaxy.</p>
+</section>
+  </div>
+  <div class="slide hidden author-slide" id="slide-8">
+    <section class="slide-content"><div class="author">
+  <h1 class="name">Mark Esler</h1>
+    <h3 class="url">
+      <a href="https://eslerm.github.io">https://eslerm.github.io</a>
+    </h3>
+</div>
+</section>
+  </div>
 
-</textarea></section>
-<section data-markdown><textarea data-template>
+  <div class="controls">
+    <div class="arrow prev"></div>
+    <div class="arrow next"></div>
+  </div>
 
-### Common Anisble Organization
 
-Ansible can be organized with **Inventories**, **Roles**, and **Playbooks**.
+  <script type="text/javascript">
+    /**
+ * Returns the current page number of the presentation.
+ */
+function currentPosition() {
+  return parseInt(document.querySelector('.slide:not(.hidden)').id.slice(6));
+}
 
-- **Inventories** define groups of servers and group specific variables.
 
-- **Roles** are a reusable collection of tasks, templates, variables, and more used to perform a certain goal.
+/**
+ * Navigates forward n pages
+ * If n is negative, we will navigate in reverse
+ */
+function navigate(n) {
+  var position = currentPosition();
+  var numSlides = document.getElementsByClassName('slide').length;
 
-</textarea></section>
-<section data-markdown><textarea data-template>
+  /* Positions are 1-indexed, so we need to add and subtract 1 */
+  var nextPosition = (position - 1 + n) % numSlides + 1;
 
-### Common Anisble Organization **cont.**
+  /* Normalize nextPosition in-case of a negative modulo result */
+  nextPosition = (nextPosition - 1 + numSlides) % numSlides + 1;
 
-- **Playbooks** define a specific application of roles and/or tasks for a group of hosts.
-  - Playbook variables override role variables which can change how a role executes.
-    - *e.g.* Two playbooks use the same role, but one deploys a web server and the other deploys a job handler.
+  document.getElementById('slide-' + position).classList.add('hidden');
+  document.getElementById('slide-' + nextPosition).classList.remove('hidden');
 
-</textarea></section>
-<section data-markdown><textarea data-template>
+  updateProgress();
+  updateURL();
+  updateTabIndex();
+}
 
-### Demo of Briefly Ansible
 
-```bash
-ansible-playbook -i inventory briefly.yml
-```
+/**
+ * Updates the current URL to include a hashtag of the current page number.
+ */
+function updateURL() {
+  window.history.replaceState({} , null, '#' + currentPosition());
+}
 
-</textarea></section>
-<section data-markdown><textarea data-template>
 
-### Where to learn more about Ansible
+/**
+ * Sets the progress indicator.
+ */
+function updateProgress() {
+  var progressBar = document.querySelector('.progress-bar');
 
-Anisble's [Documentation](https://docs.ansible.com).
+  if (progressBar !== null) {
+    var numSlides = document.getElementsByClassName('slide').length;
+    var position = currentPosition() - 1;
+    var percent = (numSlides === 1) ? 100 : 100 * position / (numSlides - 1);
+    progressBar.style.width = percent.toString() + '%';
+  }
+}
 
-[Briefly Ansible](https://github.com/eslerm/briefly-ansible): a desriptive and rudimentary demonstation of Ansible.
 
-</textarea></section>
-<section data-markdown><textarea data-template>
+/**
+ * Removes tabindex property from all links on the current slide, sets
+ * tabindex = -1 for all links on other slides. Prevents slides from appearing
+ * out of control.
+ */
+function updateTabIndex() {
+  var allLinks = document.querySelectorAll('.slide a');
+  var position = currentPosition();
+  var currentPageLinks = document.getElementById('slide-' + position).querySelectorAll('a');
+  var i;
 
-### Tree of Briefly Ansible
+  for (i = 0; i < allLinks.length; i++) {
+    allLinks[i].setAttribute('tabindex', -1);
+  }
 
-```bash
-tree briefly-ansible
-```
-```bash
-briefly-ansible
-|-- LICENSE
-|-- README.md
-|-- briefly.yml
-|-- inventory
-`-- roles
-    `-- demo
-        |-- defaults
-        |   `-- main.yml
-        `-- tasks
-            |-- emacs.yml
-            |-- gvim.yml
-            |-- main.yml
-            `-- vim.yml
-```
+  for (i = 0; i < currentPageLinks.length; i++) {
+    currentPageLinks[i].removeAttribute('tabindex');
+  }
+}
 
-</textarea></section>
-<section data-markdown><textarea data-template>
+/**
+ * Determines whether or not we are currently in full screen mode
+ */
+function isFullScreen() {
+  return document.fullscreenElement ||
+         document.mozFullScreenElement ||
+         document.webkitFullscreenElement ||
+         document.msFullscreenElement;
+}
 
-### Briefly Ansible's Inventory 
+/**
+ * Toggle fullScreen mode on document element.
+ * Works on chrome (>= 15), firefox (>= 9), ie (>= 11), opera(>= 12.1), safari (>= 5).
+ */
+function toggleFullScreen() {
+  /* Convenient renames */
+  var docElem = document.documentElement;
+  var doc = document;
 
-```bash
-cat inventory
-```
-```ini
-[demo-hosts]
-127.0.0.1
+  docElem.requestFullscreen =
+      docElem.requestFullscreen ||
+      docElem.msRequestFullscreen ||
+      docElem.mozRequestFullScreen ||
+      docElem.webkitRequestFullscreen.bind(docElem, Element.ALLOW_KEYBOARD_INPUT);
 
-[demo-hosts:vars]
-ansible_port=22
-ansible_user=username
-ansible_ssh_private_key_file=/path/to/private.key
-```
+  doc.exitFullscreen =
+      doc.exitFullscreen ||
+      doc.msExitFullscreen ||
+      doc.mozCancelFullScreen ||
+      doc.webkitExitFullscreen;
 
-</textarea></section>
-<section data-markdown><textarea data-template>
+  isFullScreen() ? doc.exitFullscreen() : docElem.requestFullscreen();
+}
 
-### Briefly Anisble's Playbook
+document.addEventListener('DOMContentLoaded', function () {
+  // Update the tabindex to prevent weird slide transitioning
+  updateTabIndex();
 
-```bash
-cat briefly.yml
-```
-```yaml
----
-# Playbook of briefly-ansible
+  // If the location hash specifies a page number, go to it.
+  var page = window.location.hash.slice(1);
+  if (page) {
+    navigate(parseInt(page) - 1);
+  }
 
-- hosts: demo-hosts  # inventory hostgroup to run playbook on
-  vars:
-    - editor: emacs  # playbook variables override role defaults
-  roles: 
-    - demo           # more roles can be used
-```
+  document.onkeydown = function (e) {
+    var kc = e.keyCode;
 
-</textarea></section>
-<section data-markdown><textarea data-template>
+    // left, down, H, J, backspace, PgUp - BACK
+    // up, right, K, L, space, PgDn - FORWARD
+    // enter - FULLSCREEN
+    if (kc === 37 || kc === 40 || kc === 8 || kc === 72 || kc === 74 || kc === 33) {
+      navigate(-1);
+    } else if (kc === 38 || kc === 39 || kc === 32 || kc === 75 || kc === 76 || kc === 34) {
+      navigate(1);
+    } else if (kc === 13) {
+      toggleFullScreen();
+    }
+  };
 
-### demo roles defaults
+  if (document.querySelector('.next') && document.querySelector('.prev')) {
+    document.querySelector('.next').onclick = function (e) {
+      e.preventDefault();
+      navigate(1);
+    };
 
-```bash
-cat roles/demo/defaults/main.yml
-```
-```yaml
----
-# defaults for briefly-ansible
+    document.querySelector('.prev').onclick = function (e) {
+      e.preventDefault();
+      navigate(-1);
+    };
+  }
+});
 
-# set vim as the default editor
-editor: vim
-```
-
-</textarea></section>
-<section data-markdown><textarea data-template>
-
-### demo roles main task file
-
-```bash
-cat roles/demo/tasks/main.yml
-```
-```yaml
----
-# main task file for briefy-ansible
-
-- name: "Debug message"
-  debug:
-    msg:
-      - "The editor variable is set to: {{ editor }}"
-      - "The remote host's IP address is: {{ ansible_default_ipv4.address }}"
-      - "The remote host's ansible_os_family is: {{ ansible_os_family }}"
-
-- name: "Include emacs task"
-  include_tasks: emacs.yml
-  when: editor == "emacs"
-  tags: emacs
-
-- name: "Include vim task"
-  include_tasks: vim.yml
-  when: editor == "vim" or editor == "gvim"  # when knows boolean
-  tags:
-    - vim
-    - gvim
-
-- name: "Include gvim task"
-  include_tasks: gvim.yml
-  when: editor == "gvim"
-  tags: gvim
-```
-
-</textarea></section>
-<section data-markdown><textarea data-template>
-
-### A subtask of demo role
-
-```bash
-cat roles/demo/defaults/vim.yml
-```
-```yaml
----
-# Install vim task
-
-- name: "Install vim with yum"         # task name for standard output
-  yum:                                 # Ansible module to use
-    name: vim                            # package to install
-    state: latest                        # install latest version
-  become: yes                          # escelate users privilege for task
-  when: ansible_os_family == "RedHat"  # only run on RedHat family distros
-
-- name: "Install vim with apt"
-  apt:
-    name: vim
-    state: latest
-  become: yes
-  when: ansible_os_family == "Debian"
-
-```
-</textarea></section>
-<section data-markdown><textarea data-template>
-
-### Examples of running playbooks
-
-Please see the [README.md](https://github.com/eslerm/briefly-ansible/blob/master/README.md) of Briefly Ansible.
-
-[![qr code](https://github.com/eslerm/briefly-ansible/raw/gh-pages/qr.gif)](https://github.com/eslerm/briefly-ansible)
-
-[https://github.com/eslerm/briefly-ansible](https://github.com/eslerm/briefly-ansible)
-
-</textarea></section>
-			</div>
-		</div>
-
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
-		<script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
-			Reveal.initialize({
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-				]
-			});
-		</script>
-	</body>
+  </script>
+</body>
 </html>
